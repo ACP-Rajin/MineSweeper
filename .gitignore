@@ -1,0 +1,10 @@
+build
+compile_commands.json
+
+# --- IDE & Editor Junk ---
+.vscode
+.idea
+*.swp
+*.swo
+.clangd
+.cache
