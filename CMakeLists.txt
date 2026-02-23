@@ -12,9 +12,17 @@ FetchContent_Declare(
   GIT_REPOSITORY https://github.com/ArthurSonzogni/ftxui.git
   GIT_TAG        main
 )
+set(FTXUI_BUILD_EXAMPLES OFF CACHE INTERNAL "")
+set(FTXUI_BUILD_DOCS OFF CACHE INTERNAL "")
+set(FTXUI_BUILD_TESTS OFF CACHE INTERNAL "")
 FetchContent_MakeAvailable(ftxui)
 
 add_executable(minesweeper src/main.cpp)
+
+if(NOT MSVC)
+  target_compile_options(minesweeper PRIVATE -ffunction-sections -fdata-sections)
+  target_link_options(minesweeper PRIVATE -Wl,--gc-sections)
+endif()
 
 target_link_libraries(minesweeper PRIVATE
   ftxui::screen

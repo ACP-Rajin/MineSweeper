@@ -24,13 +24,14 @@ A simple Minesweeper clone for the terminal built with **C++17** and **FTXUI**. 
 
 2.  **Configure the project:**
     ```bash
-    cmake .. -DCMAKE_BUILD_TYPE=Release
+    cmake .. -DCMAKE_BUILD_TYPE=MinSizeRel
     ```
+    **
 
 3.  **Build the executable:**
     You can build directly from the build folder:
     ```bash
-    cmake --build . --config Release -j 8
+    cmake --build . -j 8
     ```
     *Note: The `-j 8` flag utilizes your 8 CPU cores to speed up compilation.*
 
