@@ -17,7 +17,10 @@ set(FTXUI_BUILD_DOCS OFF CACHE INTERNAL "")
 set(FTXUI_BUILD_TESTS OFF CACHE INTERNAL "")
 FetchContent_MakeAvailable(ftxui)
 
-add_executable(minesweeper src/main.cpp)
+add_executable(minesweeper
+  src/main.cpp
+  src/board.cpp
+)
 
 if(NOT MSVC)
   target_compile_options(minesweeper PRIVATE -ffunction-sections -fdata-sections)
@@ -30,7 +33,4 @@ target_link_libraries(minesweeper PRIVATE
   ftxui::component
 )
 
-target_include_directories(minesweeper PRIVATE
-  src
-  include
-)
+target_include_directories(minesweeper PRIVATE include)
